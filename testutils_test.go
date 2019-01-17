@@ -3,15 +3,23 @@ package iavl
 import (
 	"bytes"
 	"fmt"
+	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/kfangw/iavl/db"
 	"runtime"
 	"testing"
 
 	mrand "math/rand"
 
-	"github.com/tendermint/go-amino"
 	cmn "github.com/tendermint/tendermint/libs/common"
-	"github.com/tendermint/tendermint/libs/db"
 )
+
+// Only used in testing...
+func (node *Node) lmd(ndb *nodeDB) *Node {
+	if node.isLeaf() {
+		return node
+	}
+	return node.getLeftNode(ndb).lmd(ndb)
+}
 
 func randstr(length int) string {
 	return cmn.RandStr(length)
@@ -19,13 +27,14 @@ func randstr(length int) string {
 
 func i2b(i int) []byte {
 	buf := new(bytes.Buffer)
-	amino.EncodeInt32(buf, int32(i))
+	rlp.Encode(buf, uint64(i))
 	return buf.Bytes()
 }
 
 func b2i(bz []byte) int {
-	i, _, _ := amino.DecodeInt32(bz)
-	return int(i)
+	var uint64_ uint64
+	rlp.DecodeBytes(bz, &uint64_)
+	return int(uint64_)
 }
 
 // Convenience for a new node
@@ -54,10 +63,9 @@ func N(l, r interface{}) *Node {
 
 // Setup a deep node
 func T(n *Node) *MutableTree {
-	d := db.NewDB("test", db.MemDBBackend, "")
-	t := NewMutableTree(d, 0)
+	t := NewMutableTree(db.NewMemDB(), 0)
 
-	n.hashWithCount()
+	n.hashRecursively(func(n *Node) {})
 	t.root = n
 	return t
 }
@@ -105,8 +113,7 @@ func expectTraverse(t *testing.T, trav traverser, start, end string, count int) 
 }
 
 func BenchmarkImmutableAvlTreeMemDB(b *testing.B) {
-	db := db.NewDB("test", db.MemDBBackend, "")
-	benchmarkImmutableAvlTreeWithDB(b, db)
+	benchmarkImmutableAvlTreeWithDB(b, db.NewMemDB())
 }
 
 func benchmarkImmutableAvlTreeWithDB(b *testing.B, db db.DB) {
