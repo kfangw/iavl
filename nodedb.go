@@ -7,8 +7,8 @@ import (
 	"sort"
 	"sync"
 
+	dbm "github.com/kfangw/iavl/db"
 	"github.com/tendermint/tendermint/crypto/tmhash"
-	dbm "github.com/tendermint/tendermint/libs/db"
 )
 
 const (

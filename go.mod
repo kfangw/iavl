@@ -15,9 +15,8 @@ require (
 	github.com/pkg/errors v0.8.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/stretchr/testify v1.2.2
-	github.com/syndtr/goleveldb v0.0.0-20181105012736-f9080354173f // indirect
+	github.com/syndtr/goleveldb v0.0.0-20181105012736-f9080354173f
 	github.com/tendermint/go-amino v0.14.1
-	github.com/tendermint/iavl v0.12.0
 	github.com/tendermint/tendermint v0.27.0-dev1
 	golang.org/x/crypto v0.0.0-20181126093934-9eb0be3963ea
 	golang.org/x/sync v0.0.0-20181221193216-37e7f081c4d4 // indirect

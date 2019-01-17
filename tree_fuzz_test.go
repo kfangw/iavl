@@ -2,10 +2,10 @@ package iavl
 
 import (
 	"fmt"
+	"github.com/kfangw/iavl/db"
 	"testing"
 
 	cmn "github.com/tendermint/tendermint/libs/common"
-	"github.com/tendermint/tendermint/libs/db"
 )
 
 // This file implement fuzz testing by generating programs and then running

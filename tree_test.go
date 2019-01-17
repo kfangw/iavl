@@ -3,13 +3,13 @@ package iavl
 import (
 	"bytes"
 	"flag"
+	"github.com/kfangw/iavl/db"
 	"os"
 	"runtime"
 	"strconv"
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/tendermint/tendermint/libs/db"
 
 	mathrand "math/rand"
 

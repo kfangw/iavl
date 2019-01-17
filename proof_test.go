@@ -2,13 +2,13 @@ package iavl
 
 import (
 	"bytes"
+	"github.com/kfangw/iavl/db"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
 	"github.com/tendermint/go-amino"
-	"github.com/tendermint/tendermint/libs/db"
 	"github.com/tendermint/tendermint/libs/test"
 )
 

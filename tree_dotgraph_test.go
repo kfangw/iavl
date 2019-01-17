@@ -1,10 +1,9 @@
 package iavl
 
 import (
+	"github.com/kfangw/iavl/db"
 	"io/ioutil"
 	"testing"
-
-	"github.com/tendermint/tendermint/libs/db"
 )
 
 func TestWriteDOTGraph(t *testing.T) {

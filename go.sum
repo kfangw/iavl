@@ -39,8 +39,6 @@ github.com/syndtr/goleveldb v0.0.0-20181105012736-f9080354173f h1:EEVjSRihF8NIbf
 github.com/syndtr/goleveldb v0.0.0-20181105012736-f9080354173f/go.mod h1:Z4AUp2Km+PwemOoO/VB5AOx9XSsIItzFjoJlOSiYmn0=
 github.com/tendermint/go-amino v0.14.1 h1:o2WudxNfdLNBwMyl2dqOJxiro5rfrEaU0Ugs6offJMk=
 github.com/tendermint/go-amino v0.14.1/go.mod h1:i/UKE5Uocn+argJJBb12qTZsCDBcAYMbR92AaJVmKso=
-github.com/tendermint/iavl v0.12.0 h1:xcaFAr+ycqCj7WN1RzL2EfcBioRDOHcU1oWcg83K028=
-github.com/tendermint/iavl v0.12.0/go.mod h1:EoKMMv++tDOL5qKKVnoIqtVPshRrEPeJ0WsgDOLAauM=
 github.com/tendermint/tendermint v0.27.0-dev1 h1:KwVYIeQjU4m8aZr6ID9xqZ+i3RiHRSZ0d5GHxP9LE8A=
 github.com/tendermint/tendermint v0.27.0-dev1/go.mod h1:ymcPyWblXCplCPQjbOYbrF1fWnpslATMVqiGgWbZrlc=
 golang.org/x/crypto v0.0.0-20181126093934-9eb0be3963ea h1:9OCwXt/HPCOVFs9n4ESYfUd7csy/84vHIldk1riwNtQ=

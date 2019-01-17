@@ -2,13 +2,13 @@ package iavl
 
 import (
 	"bytes"
+	"github.com/kfangw/iavl/db"
 	mrand "math/rand"
 	"sort"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/tendermint/tendermint/libs/db"
 )
 
 func TestBasic(t *testing.T) {
@@ -188,7 +188,7 @@ func TestRemove(t *testing.T) {
 	size := 10000
 	keyLen, dataLen := 16, 40
 
-	d := db.NewDB("test", "memdb", "")
+	d := db.NewMemDB()
 	defer d.Close()
 	t1 := NewMutableTree(d, size)
 

@@ -3,6 +3,7 @@ package iavl
 import (
 	"bytes"
 	"fmt"
+	"github.com/kfangw/iavl/db"
 	"runtime"
 	"testing"
 
@@ -10,7 +11,6 @@ import (
 
 	"github.com/tendermint/go-amino"
 	cmn "github.com/tendermint/tendermint/libs/common"
-	"github.com/tendermint/tendermint/libs/db"
 )
 
 func randstr(length int) string {
@@ -54,7 +54,7 @@ func N(l, r interface{}) *Node {
 
 // Setup a deep node
 func T(n *Node) *MutableTree {
-	d := db.NewDB("test", db.MemDBBackend, "")
+	d := db.NewMemDB()
 	t := NewMutableTree(d, 0)
 
 	n.hashWithCount()
@@ -105,7 +105,7 @@ func expectTraverse(t *testing.T, trav traverser, start, end string, count int) 
 }
 
 func BenchmarkImmutableAvlTreeMemDB(b *testing.B) {
-	db := db.NewDB("test", db.MemDBBackend, "")
+	db := db.NewMemDB()
 	benchmarkImmutableAvlTreeWithDB(b, db)
 }
 
